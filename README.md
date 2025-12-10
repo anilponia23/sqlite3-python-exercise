@@ -66,17 +66,9 @@ python src/app.py
 Show more lines
 
  Project Structure
-sqlite3-python-exercise/
-├─ sql/
-│  ├─ 001_schema.sql      # Database schema
-│  ├─ 002_seed.sql        # Demo data
-│  └─ queries.sql         # Reference SQL queries
-├─ src/
-│  ├─ setup_db.py         # Creates DB and seeds data
-│  ├─ dal.py              # Python DAL functions
-│  ├─ queries.py          # Python wrappers for SQL queries
-│  └─ app.py              # Demo runner
-└─ README.md
+
+<img width="582" height="257" alt="Screenshot 2025-12-10 154545" src="https://github.com/user-attachments/assets/c9edcc69-aeb9-49b6-a254-34554822a31f" />
+
 
  Design Decisions
 Normalized schema: Separate planning (work_orders) from actuals (operations)
@@ -99,14 +91,12 @@ Expected Output
 Below are examples of what you should see when running python src/app.py:
 SQL Queries Section
 
-<img width="1575" height="541" alt="Screenshot 2025-12-10 090747" src="https://github.com/user-attachments/assets/43aadb98-3e06-4467-a49c-c76d685c0e05" />
 
+<img width="1890" height="453" alt="Screenshot 2025-12-10 154203" src="https://github.com/user-attachments/assets/9ecaf7a0-31b0-48cd-af21-5c04de0f7af5" />
 
-<img width="1496" height="749" alt="Screenshot 2025-12-10 090737" src="https://github.com/user-attachments/assets/09e75e2d-2f51-48c9-ac60-a1969efd3800" />
+<img width="1895" height="791" alt="Screenshot 2025-12-10 154306" src="https://github.com/user-attachments/assets/6b41bc28-9c16-4409-becf-19af35514ec9" />
 
-
-<img width="1572" height="634" alt="Screenshot 2025-12-10 090638" src="https://github.com/user-attachments/assets/908e5c16-a678-4322-8c58-8803633650fd" />
-
+<img width="1903" height="626" alt="Screenshot 2025-12-10 154358" src="https://github.com/user-attachments/assets/87e46c8e-a171-4101-9b82-d98dfa258cd3" />
 
 
 
