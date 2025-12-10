@@ -38,6 +38,21 @@ python --version
 
 sqlite3 --version
 
+Clone the repository:
+
+
+git clone https://github.com/anilponia23/sqlite3-python-exercise.git
+
+cd sqlite3-python-exercise
+
+
+Show more lines
+(If not, ensure Python 3.x is installed; no extra packages are required for sqlite3.)
+Verify installation:
+python --version
+
+sqlite3 --version
+
 Setup Instructions
 Clone the repo:
 
