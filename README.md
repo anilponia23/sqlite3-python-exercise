@@ -98,21 +98,17 @@ README with instructions and design notes
 Expected Output
 Below are examples of what you should see when running python src/app.py:
 SQL Queries Section
-[1] Product output by month (2025-12):
-{'product_name': 'Widget A', 'good_qty': 480, 'scrap_qty': 34, 'num_orders': 3}
-{'product_name': 'Widget B', 'good_qty': 470, 'scrap_qty': 32, 'num_orders': 2}
 
-[2] Work-in-progress orders:
-{'id': 103, 'product': 'Widget A', 'status': 'in_progress', ...}
+<img width="1575" height="541" alt="Screenshot 2025-12-10 090747" src="https://github.com/user-attachments/assets/43aadb98-3e06-4467-a49c-c76d685c0e05" />
 
-DAL Functions Section
-[1] get_product_summary:
-{'product_id': 1, 'product_name': 'Widget A', 'good_qty': 480, 'scrap_qty': 34, 'num_orders': 3}
 
-[3] get_machine_utilization:
-{'machine_id': 1, 'machine_name': 'Milling-01', 'runtime_hours': 6.0, 'available_hours': 70.0, 'utilization': 0.0857}
+<img width="1496" height="749" alt="Screenshot 2025-12-10 090737" src="https://github.com/user-attachments/assets/09e75e2d-2f51-48c9-ac60-a1969efd3800" />
 
-(You can add actual screenshots by running the app and uploading images to your repo.)
+
+<img width="1572" height="634" alt="Screenshot 2025-12-10 090638" src="https://github.com/user-attachments/assets/908e5c16-a678-4322-8c58-8803633650fd" />
+
+
+
 
  Why This Design?
 Normalized schema: Avoids duplication and supports scalability.
