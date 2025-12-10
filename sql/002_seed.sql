@@ -1,21 +1,38 @@
 
--- sql/002_seed.sql
+/* =============================================================================
+   Manufacturing Data Platform – Seed Data
+   -----------------------------------------------------------------------------
+   Purpose:
+     Insert demo data to make queries meaningful:
+       • 1 plant
+       • 3 products
+       • 5 machines
+       • 12 work orders with varied statuses and date ranges
+       • Operations showing good vs scrap quantities
+       • Optional downtime events for utilization realism
+   ========================================================================== */
 
 BEGIN TRANSACTION;
 
--- Plant
+-- ============================================================================
+-- 1) Plant
+-- ============================================================================
 INSERT INTO plants (id, name) VALUES
   (1, 'Main Plant')
 ON CONFLICT DO NOTHING;
 
--- Products
+-- ============================================================================
+-- 2) Products
+-- ============================================================================
 INSERT INTO products (id, sku, name, uom) VALUES
   (1, 'WID-A', 'Widget A', 'ea'),
   (2, 'WID-B', 'Widget B', 'ea'),
   (3, 'WID-C', 'Widget C', 'ea')
 ON CONFLICT DO NOTHING;
 
--- Machines
+-- ============================================================================
+-- 3) Machines
+-- ============================================================================
 INSERT INTO machines (id, plant_id, name, type, capacity_per_hour) VALUES
   (1, 1, 'Milling-01', 'Milling', 120),
   (2, 1, 'Milling-02', 'Milling', 100),
@@ -24,7 +41,9 @@ INSERT INTO machines (id, plant_id, name, type, capacity_per_hour) VALUES
   (5, 1, 'Packaging-01', 'Packaging', 150)
 ON CONFLICT DO NOTHING;
 
--- Work Orders (Nov–Dec 2025)
+-- ============================================================================
+-- 4) Work Orders (Nov–Dec 2025)
+-- ============================================================================
 INSERT INTO work_orders (id, product_id, plant_id, planned_qty, status, planned_start, planned_end, machine_id, created_at) VALUES
   (101, 1, 1, 500, 'planned',     '2025-12-10T08:00:00Z', '2025-12-12T18:00:00Z', 1, '2025-12-01T09:00:00Z'),
   (102, 1, 1, 400, 'released',    '2025-12-07T08:00:00Z', '2025-12-09T18:00:00Z', 2, '2025-12-01T09:10:00Z'),
@@ -40,7 +59,9 @@ INSERT INTO work_orders (id, product_id, plant_id, planned_qty, status, planned_
   (112, 1, 1, 150, 'released',    '2025-12-09T12:00:00Z', '2025-12-09T20:00:00Z', 2, '2025-12-07T09:00:00Z')
 ON CONFLICT DO NOTHING;
 
--- Operations (mix of good vs scrap)
+-- ============================================================================
+-- 5) Operations (good vs scrap; some defect codes)
+-- ============================================================================
 INSERT INTO operations (work_order_id, machine_id, op_start, op_end, good_qty, scrap_qty, defect_code) VALUES
   (104, 3, '2025-11-28T08:00:00Z', '2025-11-28T12:00:00Z', 180, 10, 'DEF-A'),
   (104, 3, '2025-11-29T09:00:00Z', '2025-11-29T17:00:00Z', 240, 20, 'DEF-B'),
@@ -53,7 +74,9 @@ INSERT INTO operations (work_order_id, machine_id, op_start, op_end, good_qty, s
   (102, 2, '2025-12-07T08:30:00Z', '2025-12-07T12:30:00Z', 160, 6, NULL),
   (112, 2, '2025-12-09T12:30:00Z', '2025-12-09T17:30:00Z', 120, 10, 'DEF-C');
 
--- Downtime (optional)
+-- ============================================================================
+-- 6) Downtime Events (optional realism for utilization)
+-- ============================================================================
 INSERT INTO downtime_events (machine_id, dt_start, dt_end, reason, category) VALUES
   (1, '2025-12-08T14:00:00Z', '2025-12-08T16:00:00Z', 'Tool change', 'planned'),
   (2, '2025-12-07T13:00:00Z', '2025-12-07T14:30:00Z', 'Sensor fault', 'unplanned'),
